@@ -2,15 +2,7 @@ from qiskit import QuantumCircuit
 from qiskit import QuantumCircuit
 from qiskit.circuit.library import ZGate
 import math
-# def phase_inversion(n):
-#  n_controls = n
-#  total_qubits = n_controls + 1
 
-#  qc = QuantumCircuit(total_qubits)
-
-# # Apply CⁿZ gate: use 'ZGate().control(n_controls)'
-#  cz = ZGate().control(n_controls)
-#  qc.append(cz, list(range(total_qubits)))  # controls: 0 to n-1, target: last
 from qiskit import QuantumCircuit
 def grover_algo(n,t):
  
@@ -58,10 +50,6 @@ def grover_algo(n,t):
 grover_cc=grover_algo(7,"0001000")
 grover_cc.draw("mpl")
 
-# qc = QuantumCircuit(3)
-# qc.h([0,1,2])
-# qc.append(CCZGate(), [0, 1, 2])
-# qc.draw('mpl')
 from qiskit_aer import Aer
 from qiskit import transpile
 from qiskit.visualization import plot_histogram
@@ -72,8 +60,3 @@ grover_circ = transpile(grover_cc, backend)
 result = backend.run(grover_circ, shots=1024).result()
 counts = result.get_counts()
 plot_distribution(counts)
-
-# -------- RESULTS --------
-# print("Measurement counts:", counts)
-# plot_histogram(counts)
-
